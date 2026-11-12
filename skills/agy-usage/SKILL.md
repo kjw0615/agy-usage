@@ -1,44 +1,29 @@
 ---
 name: agy-usage
 description: >-
-  Check remaining AI usage limits (5-hour and weekly quotas) and reset times for
-  Antigravity (Gemini / Claude·GPT 5-hour), Claude Code, and OpenAI Codex. Use
-  this skill when the user runs /agy-usage or asks to check remaining quota,
-  usage percentage, rate limits, reset times, or configure which AI providers
-  appear in the usage status line.
+  Check remaining Antigravity AI usage limits and reset times, especially
+  Gemini 4 Argon weekly quota, Gemini Flash (5-hour), and Claude/GPT (5-hour).
+  Use this skill when the user runs /usage, /agy-usage, or asks to check
+  Argon weekly quota, remaining percentages, rate limits, or reset times.
 ---
 
-# AI Usage (`agy-usage`)
+# Antigravity Usage (`agy-usage`)
 
-Use this skill to display or configure remaining usage quotas (5-hour and weekly) and reset times for **Antigravity (`agy`)**, **Claude**, and **Codex**.
+Antigravity의 실시간 AI 남은 사용량과 리셋 시각을 확인합니다.
 
-## Commands
+- **Gemini 4 Argon**: 7일 단위 **주간 한도 (Weekly)**
+- **Gemini Flash (Gemini 3.8 Flash 등)**: **5시간 한도 (5-hour rolling)**
+- **Claude · GPT**: **5시간 한도 (5-hour rolling)**
 
-Run the bundled `usage.py` script located at `../../scripts/usage.py` relative to this `SKILL.md` file (or `~/.gemini/config/plugins/agy-usage/scripts/usage.py`):
+## 실행 명령
 
-1. **Detailed Usage Report (Default for `/agy-usage`)**:
-   ```bash
-   python ~/.gemini/config/plugins/agy-usage/scripts/usage.py --detail
-   ```
-   *(On macOS/Linux where `python` is `python3`, use `python3`.)*
+```bash
+# 한 줄 요약 상태
+python ~/.gemini/config/plugins/agy-usage/scripts/usage.py
 
-2. **Force Refresh**:
-   When the user asks to refresh usage right now:
-   ```bash
-   python ~/.gemini/config/plugins/agy-usage/scripts/usage.py --detail --refresh
-   ```
+# 상세 진행률 막대 및 리셋 시각 표 출력 (/usage 기본 동작)
+python ~/.gemini/config/plugins/agy-usage/scripts/usage.py --detail
 
-3. **Change Displayed AI Providers or Antigravity Groups**:
-   - Choose which AIs to show (`Antigravity`, `Claude`, `Codex`):
-     ```bash
-     python ~/.gemini/config/plugins/agy-usage/scripts/usage.py --enable Antigravity Claude --detail
-     ```
-   - Choose which Antigravity model groups to show (`"Gemini 5시간"`, `"Claude·GPT 5시간"`):
-     ```bash
-     python ~/.gemini/config/plugins/agy-usage/scripts/usage.py --agy-items "Gemini 5시간" "Claude·GPT 5시간" --detail
-     ```
-
-## Output Guidelines
-
-- Note that the terminal sandbox blocks external network access and OS credential manager reads by default. If running `usage.py` inside the sandbox returns a network or login error (`네트워크 연결 확인` or `로그인 필요`), re-run the command with `BypassSandbox: true` so it can read the OS credential store (`gemini:antigravity` / `~/.claude/.credentials.json` / `~/.codex/auth.json`) and query the official usage endpoints.
-- Present the markdown table produced by `--detail` directly to the user.
+# 캐시 무시하고 즉시 재조회
+python ~/.gemini/config/plugins/agy-usage/scripts/usage.py --detail --refresh
+```

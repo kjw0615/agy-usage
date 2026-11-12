@@ -1,8 +1,8 @@
 {
   "name": "agy-usage",
-  "displayName": "AI Usage (Antigravity · Claude · Codex)",
-  "version": "0.1.0",
-  "description": "Antigravity(agy) · Claude · Codex 의 남은 사용량(5시간·주간, 갱신 시각)을 Antigravity CLI/앱 상태줄과 /agy-usage 명령으로 보여줍니다.",
+  "displayName": "Antigravity Usage (Argon 주간 · Flash 5h · Claude·GPT 5h)",
+  "version": "0.2.0",
+  "description": "Antigravity(agy) 전용 AI 남은 사용량: Gemini 4 Argon(주간 쿼터), Gemini Flash(5시간), Claude·GPT(5시간) 잔여량과 갱신 시각을 상태줄과 /usage 명령으로 확인합니다.",
   "author": {
     "name": "kjw0615",
     "url": "https://github.com/kjw0615"
@@ -14,8 +14,8 @@
   },
   "logo": "assets/logo.svg",
   "suggestedPrompts": [
-    "/agy-usage 남은 사용량과 갱신 시각 자세히 보기",
-    "지금 사용 가능한 AI 쿼터(Antigravity, Claude, Codex) 새로고침해줘",
-    "사용량 표시 항목에서 Antigravity 와 Claude 만 켜줘"
+    "/usage Antigravity Argon 주간 쿼터 및 남은 사용량 확인",
+    "지금 Antigravity 사용량 새로고침해줘",
+    "Argon 주간 갱신 시각이 언제야?"
   ]
 }
