@@ -1,0 +1,19 @@
+{
+  "agy-usage-status": {
+    "enabled": true,
+    "SessionStart": [
+      {
+        "type": "command",
+        "command": "python ./scripts/usage.py --hook session_start || python3 ./scripts/usage.py --hook session_start",
+        "timeout": 15
+      }
+    ],
+    "PreInvocation": [
+      {
+        "type": "command",
+        "command": "python ./scripts/usage.py --hook pre_invocation || python3 ./scripts/usage.py --hook pre_invocation",
+        "timeout": 15
+      }
+    ]
+  }
+}
